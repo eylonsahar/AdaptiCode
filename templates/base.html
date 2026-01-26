@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdaptiCode - {% block title %}{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/onboarding.css') }}">
+</head>
+
+<body>
+    <!-- Onboarding Modal -->
+    <div id="onboarding-overlay" class="onboarding-overlay hidden">
+        <div class="onboarding-modal">
+            <div class="onboarding-header">
+                <div class="onboarding-icon">🚀</div>
+                <h2>Welcome to AdaptiCode!</h2>
+                <p>Let's get you started with a quick tour</p>
+            </div>
+
+            <div class="onboarding-body">
+                <!-- Step 0: Welcome -->
+                <div id="step-0" class="onboarding-step active">
+                    <h3>🎯 Your Personal Learning Companion</h3>
+                    <p>
+                        AdaptiCode is designed to help you master recursion through <strong>adaptive learning</strong>.
+                        Unlike traditional platforms, we don't just throw random questions at you—we intelligently adapt
+                        to your skill level!
+                    </p>
+                    <div class="highlight-box">
+                        <p><strong>Our Goal:</strong> Help you build genuine understanding and confidence through
+                            personalized practice that meets you exactly where you are in your learning journey.</p>
+                    </div>
+                </div>
+
+                <!-- Step 1: How It Works -->
+                <div id="step-1" class="onboarding-step">
+                    <h3>⚙️ How Adaptive Learning Works</h3>
+                    <p>Here's the magic behind AdaptiCode:</p>
+                    <ul>
+                        <li><strong>Smart Question Selection:</strong> We pick questions that match your current skill
+                            level</li>
+                        <li><strong>Real-Time Adaptation:</strong> As you answer, the system learns about you and
+                            adjusts</li>
+                        <li><strong>Structured Path:</strong> Progress through topics in logical order, building a solid
+                            foundation</li>
+                    </ul>
+                    <div class="highlight-box">
+                        <p><strong>📊 Meet Theta (θ):</strong> Your skill level score for each topic. It starts at 0
+                            and goes up as you improve. Reach 1.2 to master a topic!</p>
+                    </div>
+                </div>
+
+                <!-- Step 2: Understanding Theta -->
+                <div id="step-2" class="onboarding-step">
+                    <h3>📈 What is Theta?</h3>
+                    <p>
+                        Think of <strong>theta</strong> as your <strong>skill level score</strong>. It's a simple number
+                        that shows how well you understand each topic.
+                    </p>
+                    <ul>
+                        <li>Start at <strong>theta = 0</strong> (beginner)</li>
+                        <li>Answer correctly → theta <strong>goes up</strong> ⬆️</li>
+                        <li>Struggle with questions → theta <strong>adjusts down</strong> ⬇️</li>
+                        <li>Reach <strong>theta = 1.2</strong> → topic mastered! 🎉</li>
+                    </ul>
+                    <div class="highlight-box">
+                        <p><strong>Important:</strong> You need to answer at least <strong>2 questions</strong> before
+                            your theta starts updating. This helps us understand your true skill level!</p>
+                    </div>
+                </div>
+
+                <!-- Step 3: Concept Statuses -->
+                <div id="step-3" class="onboarding-step">
+                    <h3>🔓 Your Learning Journey</h3>
+                    <p>Each topic has a status showing your progress:</p>
+                    <div class="status-examples">
+                        <div style="display: flex; align-items: center; gap: 1rem; width: 100%;">
+                            <span class="status-badge locked">🔒 Locked</span>
+                            <p style="margin: 0; flex: 1;">Complete prerequisites first</p>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem; width: 100%;">
+                            <span class="status-badge opened">📖 Opened</span>
+                            <p style="margin: 0; flex: 1;">Currently learning—keep practicing!</p>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem; width: 100%;">
+                            <span class="status-badge mastered">✅ Mastered</span>
+                            <p style="margin: 0; flex: 1;">Completed! Next topic unlocked</p>
+                        </div>
+                    </div>
+                    <div class="highlight-box" style="margin-top: 1.5rem;">
+                        <p><strong>💡 Pro Tip:</strong> Topics unlock in order. Start with "Recursion Basics"
+                            and work your way up!</p>
+                    </div>
+                </div>
+
+                <!-- Step 4: Dashboard & Getting Started -->
+                <div id="step-4" class="onboarding-step">
+                    <h3>📊 Your Dashboard</h3>
+                    <p>Track your progress on the dashboard, where you'll see:</p>
+                    <ul>
+                        <li><strong>Learning Roadmap:</strong> Visual progress for each topic with theta scores</li>
+                        <li><strong>Statistics:</strong> Questions attempted, success rate, and more</li>
+                        <li><strong>Practice History:</strong> Every question you've tried with detailed feedback</li>
+                    </ul>
+                    <div class="highlight-box">
+                        <p><strong>🚀 Ready to Start?</strong></p>
+                        <ul style="margin: 0.5rem 0 0 1.5rem; padding: 0;">
+                            <li>Answer at least 2 questions to activate adaptive learning</li>
+                            <li>Don't worry about mistakes—that's how you learn!</li>
+                            <li>Focus on understanding, not just passing tests</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="onboarding-footer">
+                <div class="step-indicators">
+                    <div class="step-dot active"></div>
+                    <div class="step-dot"></div>
+                    <div class="step-dot"></div>
+                    <div class="step-dot"></div>
+                    <div class="step-dot"></div>
+                </div>
+                <div class="onboarding-nav">
+                    <button id="onboarding-prev" class="onboarding-btn onboarding-btn-secondary" style="display: none;">
+                        ← Previous
+                    </button>
+                    <button id="onboarding-next" class="onboarding-btn onboarding-btn-primary">
+                        Next →
+                    </button>
+                    <button id="onboarding-finish" class="onboarding-btn onboarding-btn-primary" style="display: none;">
+                        Let's Start! 🎉
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">AdaptiCode</div>
+            <div class="nav-links">
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('guide') }}">Guide</a>
+                <a href="{{ url_for('dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('question_page') }}">Practice</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 AdaptiCode - Adaptive Learning for Technical Interviews</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/onboarding.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+
+</html>

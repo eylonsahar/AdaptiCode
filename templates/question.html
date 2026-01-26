@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+
+{% block title %}{{ question.name.replace('_', ' ').title() }} - {{ category.replace('_', ' ').title() }}{% endblock %}
+
+{% block content %}
+<div class="question-container">
+    <div class="question-header">
+        <h1>{{ question.name.replace('_', ' ').title() }}</h1>
+        <div class="question-meta">
+            <span class="difficulty difficulty-{{ question.difficulty }}">
+                {% if question.difficulty == '1' %}
+                Easy
+                {% elif question.difficulty == '2' %}
+                Medium
+                {% else %}
+                Hard
+                {% endif %}
+            </span>
+            <span class="time-limit">⏱️ {{ question.time_limit_minutes }} min</span>
+        </div>
+
+        {% if selection_explanation %}
+        <div class="selection-explanation">
+            <div class="explanation-header">
+                <span class="explanation-icon">🎯</span>
+                <span class="explanation-title">Why this question?</span>
+            </div>
+            <p class="explanation-text">{{ selection_explanation }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="question-content">
+        <div class="problem-statement">
+            <h2>Problem Statement</h2>
+            <div id="problem-text">
+                <pre>{{ question.description }}</pre>
+            </div>
+        </div>
+
+        <div class="code-editor-container">
+            <div class="editor-header">
+                <span>Your Solution (Python)</span>
+                <div class="editor-actions">
+                    <button id="hint-button" class="btn btn-hint">💡 Hint (<span id="hints-remaining">3</span>)</button>
+                    <button id="run-code" class="btn btn-secondary">Run Code</button>
+                    <button id="submit-code" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+            <div id="editor">{{ question.init_code | safe }}</div>
+            <div class="line-counter">
+                <span id="code-line-count">0</span>/50 lines
+            </div>
+            <div id="hint-display" class="hint-display" style="display: none;">
+                <div class="hint-header">
+                    <span>💡 Hint</span>
+                    <button id="close-hint" class="close-hint">×</button>
+                </div>
+                <div id="hint-content" class="hint-content"></div>
+            </div>
+            <div class="run-output-container">
+                <h3>Output</h3>
+                <pre id="run-output"></pre>
+            </div>
+        </div>
+
+        <div class="test-cases">
+            <h3>Example Test Cases</h3>
+            <div id="test-cases-container">
+                {% for t in question.tests %}
+                <div class="test-case">
+                    <div class="test-case-header">
+                        <span>Test Case {{ loop.index }}</span>
+                        <span class="test-status">Example</span>
+                    </div>
+                    <div class="test-case-content">
+                        <p>Input: <code>{% if t.input is sequence and t.input is not string and t.input|length == 1 and t.input.0 is sequence and t.input.0 is not string %}
+                            [{{ t.input.0|join(', ') }}]
+                        {% elif t.input is sequence and t.input is not string %}
+                            {{ t.input|join(', ') }}
+                        {% else %}
+                            {{ t.input }}
+                        {% endif %}</code></p>
+                        <p>Expected Output: <code>{{ t.output }}</code></p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div id="feedback-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Submit Feedback</h2>
+            <form id="feedback-form">
+
+
+
+                <div class="form-group">
+                    <label>How difficult was this problem?</label>
+                    <div class="rating">
+                        {% for i in range(1, 6) %}
+                        <input type="radio" id="star{{ i }}" name="difficulty" value="{{ i }}" {% if i==3 %}checked{%
+                            endif %}>
+                        <label for="star{{ i }}" title="{{ i }} star">★</label>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>What was challenging? (Select all that apply)</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="pain_points" value="problem_understanding"> Understanding
+                            the problem</label>
+                        <label><input type="checkbox" name="pain_points" value="algorithm_design"> Algorithm
+                            design</label>
+                        <label><input type="checkbox" name="pain_points" value="syntax_errors"> Syntax errors</label>
+                        <label><input type="checkbox" name="pain_points" value="edge_cases"> Handling edge cases</label>
+                        <label><input type="checkbox" name="pain_points" value="optimization"> Code optimization</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="self-feelings">How did you feel about your solution?</label>
+                    <textarea id="self-feelings" rows="3"
+                        placeholder="I felt confident about my solution..."></textarea>
+                    <div class="word-counter">
+                        <span id="feedback-word-count">0</span>/50 words
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="feedback-result" class="feedback-result">
+    <div class="feedback-content">
+        <h3>Feedback on Your Solution</h3>
+        <div class="feedback-section">
+            <h4>Code Feedback:</h4>
+            <p id="code-feedback"></p>
+        </div>
+        <div class="feedback-section">
+            <h4>Personal Feedback:</h4>
+            <p id="personal-feedback"></p>
+        </div>
+        <div class="feedback-actions">
+            <button id="next-question-btn" class="btn btn-primary">Next Question</button>
+        </div>
+    </div>
+</div>
+
+<!-- Progress Overlay -->
+<div id="progress-overlay" class="progress-overlay">
+    <div class="progress-overlay-content">
+        <div class="progress-spinner"></div>
+        <h2 id="progress-title">Processing Your Feedback</h2>
+        <div class="progress-bar-container">
+            <div class="progress-bar-animated">
+                <div id="progress-bar-fill" class="progress-bar-fill-animated"></div>
+            </div>
+        </div>
+        <p id="progress-status" class="progress-status">Submitting feedback...</p>
+    </div>
+</div>
+
+<!-- Hidden form for question data -->
+<input type="hidden" id="question-id" value="{{ question.id }}">
+<input type="hidden" id="category" value="{{ category }}">
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+<script src="{{ url_for('static', filename='js/editor.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+<div class="dashboard-container">
+    <div class="dashboard-header">
+        <h1>Your Learning Dashboard</h1>
+        <p class="subtitle">Track your progress and performance across all topics</p>
+    </div>
+
+    <!-- Loading State -->
+    <div id="loading-state" class="loading-state">
+        <div class="spinner"></div>
+        <p>Loading your dashboard...</p>
+    </div>
+
+    <!-- Error State -->
+    <div id="error-state" class="error-state" style="display: none;">
+        <p class="error-message">Failed to load dashboard data. Please try again.</p>
+    </div>
+
+    <!-- Dashboard Content -->
+    <div id="dashboard-content" style="display: none;">
+
+        <!-- Help Banner (First-time users) -->
+        <div id="dashboard-help-banner" class="dashboard-help-banner hidden">
+            <div class="banner-content">
+                <span class="banner-icon">💡</span>
+                <div class="banner-text">
+                    <strong>New to the dashboard?</strong>
+                    <p>Learn how to read your progress metrics and understand your theta score in our <a
+                            href="{{ url_for('guide') }}" class="banner-link">Platform Guide →</a></p>
+                </div>
+            </div>
+            <button id="banner-close" class="banner-close" aria-label="Close banner">×</button>
+        </div>
+
+        <!-- Statistics Overview Cards -->
+        <section class="stats-overview">
+            <div class="stat-card">
+                <div class="stat-icon">📝</div>
+                <div class="stat-content">
+                    <h3 id="total-questions">0</h3>
+                    <p>Questions Attempted</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-content">
+                    <h3 id="passed-questions">0</h3>
+                    <p>Questions Passed</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-content">
+                    <h3 id="success-rate">0%</h3>
+                    <p>Success Rate</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Theta Roadmap Section -->
+        <section class="roadmap-section">
+            <h2>🗺️ Your Learning Roadmap
+                <span class="tooltip-container">
+                    <span class="tooltip-icon">?</span>
+                    <span class="tooltip-text">Visual representation of your skill level (theta) for each topic.
+                        Progress from -3 (beginner) to 3 (mastered)!</span>
+                </span>
+            </h2>
+            <p class="section-description">Track your progress from beginner to mastery in each topic
+            </p>
+            <p class="helper-text"><span class="helper-text-icon">💡</span>Each roadmap shows your current theta score
+                and how close you are to mastering that topic.</p>
+            <div id="roadmap-container" class="roadmap-container">
+                <!-- Roadmaps will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <!-- Topic Statistics Charts -->
+        <section class="charts-section">
+            <h2>📈 Performance by Topic</h2>
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3>Success Rate by Topic</h3>
+                    <canvas id="topic-success-chart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Questions Attempted by Topic</h3>
+                    <canvas id="topic-attempts-chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice History Table -->
+        <section class="history-section">
+            <h2>📚 Practice History</h2>
+            <p class="section-description">Complete history of all questions you've attempted (oldest first)</p>
+
+            <!-- Filter Controls -->
+            <div class="filter-controls">
+                <label>
+                    Filter by Topic:
+                    <select id="topic-filter">
+                        <option value="all">All Topics</option>
+                    </select>
+                </label>
+                <label>
+                    Filter by Result:
+                    <select id="result-filter">
+                        <option value="all">All Results</option>
+                        <option value="passed">Passed Only</option>
+                        <option value="failed">Failed Only</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="table-container">
+                <table id="history-table" class="history-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Question Name</th>
+                            <th>Topic</th>
+                            <th>Test Pass Rate</th>
+                            <th>Code Quality</th>
+                            <th>Self-Reported Feelings</th>
+                            <th>Result</th>
+                            <th>Theta Change
+                                <span class="tooltip-container">
+                                    <span class="tooltip-icon">?</span>
+                                    <span class="tooltip-text">How much your skill level changed after this question.
+                                        Positive = improved, negative = adjusted down.</span>
+                                </span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="history-tbody">
+                        <!-- Table rows will be dynamically inserted here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="no-history" class="no-history" style="display: none;">
+                <p>No practice history yet. <a href="{{ url_for('question_page') }}">Start practicing!</a></p>
+            </div>
+        </section>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}

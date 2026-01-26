@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}Summary{% endblock %}
+
+{% block content %}
+<div class="question-container">
+    <div class="question-header">
+        <h1>Session Summary</h1>
+        <div class="question-meta">
+            <span class="time-limit">Question: {{ question_name }}</span>
+            <span class="time-limit">Topic: {{ topic }}</span>
+        </div>
+    </div>
+
+    <div class="question-content">
+        <div class="problem-statement">
+            <h2>Result</h2>
+            <p><strong>Hidden tests pass rate:</strong> {{ hidden_passed }}/{{ hidden_total }} ({{ (hidden_pass_rate * 100) | round(1) }}%)</p>
+            <p><strong>Decision (uᵢ):</strong> {{ ui }} ({{ 'Passed ✓' if ui == 1 else 'Not Passed ✗' }})</p>
+            {% if pass_fail_explanation %}
+            <div style="margin-top: 15px; padding: 15px; background-color: {{ '#e8f5e9' if ui == 1 else '#fff3e0' }}; border-radius: 5px; border-left: 4px solid {{ '#4caf50' if ui == 1 else '#ff9800' }};">
+                <strong>Evaluation Explanation:</strong>
+                <p style="margin-top: 8px; line-height: 1.6;">{{ pass_fail_explanation }}</p>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="test-cases">
+            <h3>Hidden Tests</h3>
+            <div id="test-cases-container">
+                {% if hidden_tests and hidden_tests|length > 0 %}
+                    {% for t in hidden_tests %}
+                    <div class="test-case">
+                        <div class="test-case-header">
+                            <span>Hidden Test {{ loop.index }}</span>
+                            <span class="test-status {{ 'passed' if t.passed else 'failed' }}">
+                                {{ '✓ Passed' if t.passed else '✗ Failed' }}
+                            </span>
+                        </div>
+                        {% if not t.passed %}
+                        <div class="test-case-content">
+                            {% if t.input is defined %}<p>Input: <code>{{ t.input }}</code></p>{% endif %}
+                            {% if t.expected_output is defined %}<p>Expected Output: <code>{{ t.expected_output }}</code></p>{% endif %}
+                            {% if t.actual_output is defined %}<p>Actual Output: <code>{{ t.actual_output }}</code></p>{% endif %}
+                            {% if t.error is defined %}<p>Error: <code>{{ t.error }}</code></p>{% endif %}
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No hidden tests were executed.</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="problem-statement">
+            <h2>Code Quality Assessment</h2>
+            <p><strong>Score:</strong> {{ code_quality_score }}</p>
+            <div style="margin-top: 10px; padding: 15px; background-color: #f5f5f5; border-radius: 5px; border-left: 4px solid #007bff;">
+                <strong>Explanation:</strong>
+                <p style="margin-top: 8px; line-height: 1.6;">{{ code_quality_explanation }}</p>
+            </div>
+        </div>
+
+        <div class="problem-statement">
+            <h2>What changed</h2>
+            <p><strong>Theta:</strong> {{ theta_before | round(2) }} → {{ theta_after | round(2) }}</p>
+            <p><strong>Concept status:</strong> {{ status_before }} → {{ status_after }}</p>
+        </div>
+
+        <div class="feedback-actions">
+            <a href="{{ url_for('question_page') }}" class="btn btn-primary">Next Question</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

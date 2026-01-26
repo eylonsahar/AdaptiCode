@@ -1,0 +1,176 @@
+{
+  "topic": "Backtracking",
+  "questions": [
+    {
+      "name": "Subsets",
+      "topic": "Backtracking",
+      "description": "Given an integer array nums, return all possible subsets (the power set).\n\nThe solution set must not contain duplicate subsets. Return the solution in any order.\n\nExample 1:\nInput: nums = [1,2,3]\nOutput: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]\n\nExample 2:\nInput: nums = [0]\nOutput: [[],[0]]\n\nExample 3:\nInput: nums = [1,2]\nOutput: [[],[1],[2],[1,2]]\n\nConstraints:\n1 <= nums.length <= 10\n-10 <= nums[i] <= 10\nAll the numbers of nums are unique.",
+      "init_code": "def solve(arr):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 1.9,
+      "beta": 0.5,
+      "is_unordered": true,
+      "tests": [
+        { "input": [[1,2,3]], "output": [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]], "is_unordered": true },
+        { "input": [[0]], "output": [[],[0]], "is_unordered": true },
+        { "input": [[1,2]], "output": [[],[1],[2],[1,2]], "is_unordered": true }
+      ],
+      "hidden_tests": [
+        { "input": [[]], "output": [[]], "is_unordered": true },
+        { "input": [[5]], "output": [[],[5]], "is_unordered": true },
+        { "input": [[-1,1]], "output": [[],[-1],[1],[-1,1]], "is_unordered": true }
+      ]
+    },
+    {
+      "name": "Permutations",
+      "topic": "Backtracking",
+      "description": "Given an array nums of distinct integers, return all the possible permutations.\n\nYou can return the answer in any order.\n\nExample 1:\nInput: nums = [1,2,3]\nOutput: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]\n\nExample 2:\nInput: nums = [0,1]\nOutput: [[0,1],[1,0]]\n\nExample 3:\nInput: nums = [1]\nOutput: [[1]]\n\nConstraints:\n1 <= nums.length <= 6\n-10 <= nums[i] <= 10\nAll the integers of nums are unique.",
+      "init_code": "def solve(arr):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 2.0,
+      "beta": 0.8,
+      "is_unordered": true,
+      "tests": [
+        { "input": [[1,2,3]], "output": [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]], "is_unordered": true },
+        { "input": [[0,1]], "output": [[0,1],[1,0]], "is_unordered": true },
+        { "input": [[1]], "output": [[1]], "is_unordered": true }
+      ],
+      "hidden_tests": [
+        { "input": [[2,3]], "output": [[2,3],[3,2]], "is_unordered": true },
+        { "input": [[-1,1]], "output": [[-1,1],[1,-1]], "is_unordered": true },
+        { "input": [[5,6,7]], "output": [[5,6,7],[5,7,6],[6,5,7],[6,7,5],[7,5,6],[7,6,5]], "is_unordered": true }
+      ]
+    },
+    {
+      "name": "Combinations",
+      "topic": "Backtracking",
+      "description": "Given two integers n and k, return all possible combinations of k numbers chosen from the range [1, n].\n\nYou may return the answer in any order.\n\nExample 1:\nInput: n = 4, k = 2\nOutput: [[2,4],[3,4],[2,3],[1,2],[1,3],[1,4]]\n\nExample 2:\nInput: n = 1, k = 1\nOutput: [[1]]\n\nExample 3:\nInput: n = 5, k = 3\nOutput: [[1,2,3],[1,2,4],[1,2,5],[1,3,4],[1,3,5],[1,4,5],[2,3,4],[2,3,5],[2,4,5],[3,4,5]]\n\nConstraints:\n1 <= n <= 20\n1 <= k <= n",
+      "init_code": "def solve(n, k):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 2.1,
+      "beta": 1.1,
+      "is_unordered": true,
+      "tests": [
+        { "input": [4, 2], "output": [[2,4],[3,4],[2,3],[1,2],[1,3],[1,4]], "is_unordered": true },
+        { "input": [1, 1], "output": [[1]], "is_unordered": true },
+        { "input": [5, 3], "output": [[1,2,3],[1,2,4],[1,2,5],[1,3,4],[1,3,5],[1,4,5],[2,3,4],[2,3,5],[2,4,5],[3,4,5]], "is_unordered": true }
+      ],
+      "hidden_tests": [
+        { "input": [3, 2], "output": [[1,2],[1,3],[2,3]], "is_unordered": true },
+        { "input": [4, 3], "output": [[1,2,3],[1,2,4],[1,3,4],[2,3,4]], "is_unordered": true },
+        { "input": [2, 1], "output": [[1],[2]], "is_unordered": true }
+      ]
+    },
+    {
+      "name": "Letter Combinations of a Phone Number",
+      "topic": "Backtracking",
+      "description": "Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent.\n\nReturn the answer in any order.\n\nA mapping of digits to letters (just like on the telephone buttons) is given below:\n2 -> abc, 3 -> def, 4 -> ghi, 5 -> jkl, 6 -> mno, 7 -> pqrs, 8 -> tuv, 9 -> wxyz\n\nExample 1:\nInput: digits = \"23\"\nOutput: [\"ad\",\"ae\",\"af\",\"bd\",\"be\",\"bf\",\"cd\",\"ce\",\"cf\"]\n\nExample 2:\nInput: digits = \"\"\nOutput: []\n\nExample 3:\nInput: digits = \"2\"\nOutput: [\"a\",\"b\",\"c\"]\n\nConstraints:\n0 <= digits.length <= 4\ndigits[i] is a digit in the range ['2', '9'].",
+      "init_code": "def solve(digits):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 1.8,
+      "beta": 1.4,
+      "is_unordered": true,
+      "tests": [
+        { "input": "23", "output": ["ad","ae","af","bd","be","bf","cd","ce","cf"], "is_unordered": true },
+        { "input": "", "output": [], "is_unordered": true },
+        { "input": "2", "output": ["a","b","c"], "is_unordered": true }
+      ],
+      "hidden_tests": [
+        { "input": "234", "output": ["adg","adh","adi","aeg","aeh","aei","afg","afh","afi","bdg","bdh","bdi","beg","beh","bei","bfg","bfh","bfi","cdg","cdh","cdi","ceg","ceh","cei","cfg","cfh","cfi"], "is_unordered": true },
+        { "input": "9", "output": ["w","x","y","z"], "is_unordered": true },
+        { "input": "22", "output": ["aa","ab","ac","ba","bb","bc","ca","cb","cc"], "is_unordered": true }
+      ]
+    },
+    {
+      "name": "Combination Sum",
+      "topic": "Backtracking",
+      "description": "Given an array of distinct integers candidates and a target integer target, return all unique combinations of candidates where the chosen numbers sum to target.\n\nThe same number may be chosen from candidates an unlimited number of times. Two combinations are unique if the frequency of at least one of the chosen numbers is different.\n\nExample 1:\nInput: candidates = [2,3,6,7], target = 7\nOutput: [[2,2,3],[7]]\n\nExample 2:\nInput: candidates = [2,3,5], target = 8\nOutput: [[2,2,2,2],[2,3,3],[3,5]]\n\nExample 3:\nInput: candidates = [2], target = 1\nOutput: []\n\nConstraints:\n1 <= candidates.length <= 30\n2 <= candidates[i] <= 40\nAll elements of candidates are distinct.\n1 <= target <= 40",
+      "init_code": "def solve(candidates, target):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 2.3,
+      "beta": 1.7,
+      "is_unordered": true,
+      "tests": [
+        { "input": [[2,3,6,7], 7], "output": [[2,2,3],[7]], "is_unordered": true },
+        { "input": [[2,3,5], 8], "output": [[2,2,2,2],[2,3,3],[3,5]], "is_unordered": true },
+        { "input": [[2], 1], "output": [], "is_unordered": true }
+      ],
+      "hidden_tests": [
+        { "input":[[2,3,5], 5], "output": [[2,3],[5]], "is_unordered": true },
+        { "input": [[3,5,8], 11], "output": [[3,3,5],[3,8]], "is_unordered": true },
+        { "input": [[2], 4], "output": [[2,2]], "is_unordered": true }
+      ]
+    },
+    {
+      "name": "Palindrome Partitioning",
+      "topic": "Backtracking",
+      "description": "Given a string s, partition s such that every substring of the partition is a palindrome. Return all possible palindrome partitioning of s.\n\nExample 1:\nInput: s = \"aab\"\nOutput: [[\"a\",\"a\",\"b\"],[\"aa\",\"b\"]]\n\nExample 2:\nInput: s = \"a\"\nOutput: [[\"a\"]]\n\nExample 3:\nInput: s = \"ab\"\nOutput: [[\"a\",\"b\"]]\n\nConstraints:\n1 <= s.length <= 16\ns contains only lowercase English letters.",
+      "init_code": "def solve(s):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 2.5,
+      "beta": 2.3,
+      "is_unordered": true,
+      "tests": [
+        { "input": "aab", "output": [["a","a","b"],["aa","b"]], "is_unordered": true },
+        { "input": "a", "output": [["a"]], "is_unordered": true },
+        { "input": "ab", "output": [["a","b"]], "is_unordered": true }
+      ],
+      "hidden_tests": [
+        { "input": "aa", "output": [["a","a"],["aa"]], "is_unordered": true },
+        { "input": "aba", "output": [["a","b","a"],["aba"]], "is_unordered": true },
+        { "input": "abc", "output": [["a","b","c"]], "is_unordered": true }
+      ]
+    },
+    {
+      "name": "N-Queens",
+      "topic": "Backtracking",
+      "description": "The n-queens puzzle is the problem of placing n queens on an n x n chessboard such that no two queens attack each other.\n\nGiven an integer n, return the number of distinct solutions to the n-queens puzzle.\n\nExample 1:\nInput: n = 4\nOutput: 2\n\nExample 2:\nInput: n = 1\nOutput: 1\n\nExample 3:\nInput: n = 5\nOutput: 10\n\nConstraints:\n1 <= n <= 9",
+      "init_code": "def solve(n):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 2.7,
+      "beta": 2.9,
+      "is_unordered": false,
+      "tests": [
+        { "input": 4, "output": 2, "is_unordered": false },
+        { "input": 1, "output": 1, "is_unordered": false },
+        { "input": 5, "output": 10, "is_unordered": false }
+      ],
+      "hidden_tests": [
+        { "input": 2, "output": 0, "is_unordered": false },
+        { "input": 3, "output": 0, "is_unordered": false },
+        { "input": 6, "output": 4, "is_unordered": false }
+      ]
+    },
+    {
+      "name": "Word Search",
+      "topic": "Backtracking",
+      "description": "Given an m x n grid of characters board and a string word, return true if word exists in the grid.\n\nThe word can be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once.\n\nExample 1:\nInput: board = [[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]], word = \"ABCCED\"\nOutput: true\n\nExample 2:\nInput: board = [[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]], word = \"SEE\"\nOutput: true\n\nExample 3:\nInput: board = [[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]], word = \"ABCB\"\nOutput: false\n\nConstraints:\nm == board.length\nn = board[i].length\n1 <= m, n <= 6\n1 <= word.length <= 15\nboard and word consists of only lowercase and uppercase English letters.",
+      "init_code": "def solve(board, word):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 2.6,
+      "beta": 2.6,
+      "is_unordered": false,
+      "tests": [
+        { "input": [[["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], "ABCCED"], "output": true, "is_unordered": false },
+        { "input": [[["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], "SEE"], "output": true, "is_unordered": false },
+        { "input": [[["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], "ABCB"], "output": false, "is_unordered": false }
+      ],
+      "hidden_tests": [
+        { "input": [[["A"]], "A"], "output": true, "is_unordered": false },
+        { "input": [[["A","B"],["C","D"]], "ABDC"], "output": true, "is_unordered": false },
+        { "input": [[["A","B"],["C","D"]], "ABCD"], "output": false, "is_unordered": false }
+      ]
+    },
+    {
+      "name": "Restore IP Addresses",
+      "topic": "Backtracking",
+      "description": "Given a string s containing only digits, return all possible valid IP addresses that can be obtained from s. You can return them in any order.\n\nA valid IP address consists of exactly four integers, each integer is between 0 and 255, separated by single dots and cannot have leading zeros.\n\nFor example, \"0.1.2.201\" and \"192.168.1.1\" are valid IP addresses and \"0.011.255.245\", \"192.168.1.312\" and \"192.168@1.1\" are invalid IP addresses.\n\nExample 1:\nInput: s = \"25525511135\"\nOutput: [\"255.255.11.135\",\"255.255.111.35\"]\n\nExample 2:\nInput: s = \"0000\"\nOutput: [\"0.0.0.0\"]\n\nExample 3:\nInput: s = \"101023\"\nOutput: [\"1.0.10.23\",\"1.0.102.3\",\"10.1.0.23\",\"10.10.2.3\",\"101.0.2.3\"]\n\nConstraints:\n1 <= s.length <= 20\ns consists of digits only.",
+      "init_code": "def solve(s):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 2.4,
+      "beta": 2.0,
+      "is_unordered": true,
+      "tests": [
+        { "input": "25525511135", "output": ["255.255.11.135","255.255.111.35"], "is_unordered": true },
+        { "input": "0000", "output": ["0.0.0.0"], "is_unordered": true },
+        { "input": "101023", "output": ["1.0.10.23","1.0.102.3","10.1.0.23","10.10.2.3","101.0.2.3"], "is_unordered": true }
+      ],
+      "hidden_tests": [
+        { "input": "1111", "output": ["1.1.1.1"], "is_unordered": true },
+        { "input": "010010", "output": ["0.10.0.10","0.100.1.0"], "is_unordered": true },
+        { "input": "12345", "output": ["1.2.3.45","1.2.34.5","1.23.4.5","12.3.4.5"], "is_unordered": true }
+      ]
+    }
+  ]
+}

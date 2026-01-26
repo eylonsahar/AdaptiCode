@@ -1,0 +1,195 @@
+{
+  "topic": "Recursion Basics",
+  "questions": [
+    {
+      "name": "Factorial",
+      "topic": "Recursion Basics",
+      "description": "Given a non-negative integer n, return the factorial of n.\n\nThe factorial of n (denoted as n!) is the product of all positive integers less than or equal to n.\n\nExample 1:\nInput: n = 3\nOutput: 6\nExplanation: 3! = 3 x 2 x 1 = 6\n\nExample 2:\nInput: n = 0\nOutput: 1\nExplanation: By definition, 0! = 1\n\nExample 3:\nInput: n = 5\nOutput: 120\nExplanation: 5! = 5 x 4 x 3 x 2 x 1 = 120\n\nConstraints:\n0 <= n <= 20",
+      "init_code": "def solve(n):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 1,
+      "beta": 1.0,
+      "is_unordered": false,
+      "tests": [
+        { "input": 3, "output": 6, "is_unordered": false },
+        { "input": 0, "output": 1, "is_unordered": false },
+        { "input": 5, "output": 120, "is_unordered": false }
+      ],
+      "hidden_tests": [
+        { "input": 1, "output": 1, "is_unordered": false },
+        { "input": 4, "output": 24, "is_unordered": false },
+        { "input": 6, "output": 720, "is_unordered": false }
+      ]
+    },
+    {
+      "name": "Sum From 1 to N",
+      "topic": "Recursion Basics",
+      "description": "Given an integer n, return the sum of all numbers from 1 to n.\n\nExample 1:\nInput: n = 5\nOutput: 15\nExplanation: 1 + 2 + 3 + 4 + 5 = 15\n\nExample 2:\nInput: n = 1\nOutput: 1\nExplanation: Only one number to sum, which is 1\n\nExample 3:\nInput: n = 10\nOutput: 55\nExplanation: 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 = 55\n\nConstraints:\n1 <= n <= 1000",
+      "init_code": "def solve(n):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 1,
+      "beta": -3.0,
+      "is_unordered": false,
+      "tests": [
+        { "input": 5, "output": 15, "is_unordered": false },
+        { "input": 1, "output": 1, "is_unordered": false },
+        { "input": 10, "output": 55, "is_unordered": false }
+      ],
+      "hidden_tests": [
+        { "input": 2, "output": 3, "is_unordered": false },
+        { "input": 3, "output": 6, "is_unordered": false },
+        { "input": 100, "output": 5050, "is_unordered": false }
+      ]
+    },
+    {
+      "name": "Power of Number",
+      "topic": "Recursion Basics",
+      "description": "Given two integers x and n, return x raised to the power n (x^n).\n\nExample 1:\nInput: x = 2, n = 3\nOutput: 8\nExplanation: 2^3 = 2 x 2 x 2 = 8\n\nExample 2:\nInput: x = 5, n = 0\nOutput: 1\nExplanation: Any number raised to the power 0 is 1\n\nExample 3:\nInput: x = 2, n = 4\nOutput: 16\nExplanation: 2^4 = 2 x 2 x 2 x 2 = 16\n\nConstraints:\n-100 <= x <= 100\n0 <= n <= 20",
+      "init_code": "def solve(x, n):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 1,
+      "beta": 1.5,
+      "is_unordered": false,
+      "tests": [
+        { "input": [2, 3], "output": 8, "is_unordered": false },
+        { "input": [5, 0], "output": 1, "is_unordered": false },
+        { "input": [2, 4], "output": 16, "is_unordered": false }
+      ],
+      "hidden_tests": [
+        { "input": [3, 2], "output": 9, "is_unordered": false },
+        { "input": [10, 2], "output": 100, "is_unordered": false },
+        { "input": [2, 5], "output": 32, "is_unordered": false }
+      ]
+    },
+    {
+      "name": "Count Down",
+      "topic": "Recursion Basics",
+      "description": "Given a non-negative integer n, return a list counting down from n to 0.\n\nExample 1:\nInput: n = 3\nOutput: [3, 2, 1, 0]\nExplanation: Count down from 3 to 0 inclusive\n\nExample 2:\nInput: n = 0\nOutput: [0]\nExplanation: Starting at 0, the list contains only 0\n\nExample 3:\nInput: n = 5\nOutput: [5, 4, 3, 2, 1, 0]\nExplanation: Count down from 5 to 0 inclusive\n\nConstraints:\n0 <= n <= 100",
+      "init_code": "def solve(n):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 1,
+      "beta": -1.5,
+      "is_unordered": false,
+      "tests": [
+        { "input": 3, "output": [3, 2, 1, 0], "is_unordered": false },
+        { "input": 0, "output": [0], "is_unordered": false },
+        { "input": 5, "output": [5, 4, 3, 2, 1, 0], "is_unordered": false }
+      ],
+      "hidden_tests": [
+        { "input": 1, "output": [1, 0], "is_unordered": false },
+        { "input": 2, "output": [2, 1, 0], "is_unordered": false },
+        { "input": 4, "output": [4, 3, 2, 1, 0], "is_unordered": false }
+      ]
+    },
+    {
+      "name": "Sum of List",
+      "topic": "Recursion Basics",
+      "description": "Given a list of integers, return the sum of all elements.\n\nExample 1:\nInput: arr = [1, 2, 3]\nOutput: 6\nExplanation: 1 + 2 + 3 = 6\n\nExample 2:\nInput: arr = []\nOutput: 0\nExplanation: Sum of an empty list is 0\n\nExample 3:\nInput: arr = [5, 10, 15]\nOutput: 30\nExplanation: 5 + 10 + 15 = 30\n\nConstraints:\n0 <= arr.length <= 1000\n-1000 <= arr[i] <= 1000",
+      "init_code": "def solve(arr):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 1,
+      "beta": 0.0,
+      "is_unordered": false,
+      "tests": [
+        { "input": [[1, 2, 3]], "output": 6, "is_unordered": false },
+        { "input": [[]], "output": 0, "is_unordered": false },
+        { "input": [[5, 10, 15]], "output": 30, "is_unordered": false }
+      ],
+      "hidden_tests": [
+        { "input": [[1]], "output": 1, "is_unordered": false },
+        { "input": [[-1, -2, -3]], "output": -6, "is_unordered": false },
+        { "input":[ [0, 0, 0]], "output": 0, "is_unordered": false }
+      ]
+    },
+    {
+      "name": "Length of String",
+      "topic": "Recursion Basics",
+      "description": "Given a string, return its length using recursion (do not use the built-in len() function).\n\nExample 1:\nInput: s = \"abc\"\nOutput: 3\nExplanation: The string has 3 characters\n\nExample 2:\nInput: s = \"\"\nOutput: 0\nExplanation: An empty string has length 0\n\nExample 3:\nInput: s = \"hello\"\nOutput: 5\nExplanation: The string has 5 characters\n\nConstraints:\n0 <= len(s) <= 1000\ns consists of only lowercase English letters",
+      "init_code": "def solve(s):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 1,
+      "beta": 0.5,
+      "is_unordered": false,
+      "tests": [
+        { "input": "abc", "output": 3, "is_unordered": false },
+        { "input": "", "output": 0, "is_unordered": false },
+        { "input": "hello", "output": 5, "is_unordered": false }
+      ],
+      "hidden_tests": [
+        { "input": "a", "output": 1, "is_unordered": false },
+        { "input": "recursion", "output": 9, "is_unordered": false },
+        { "input": "x", "output": 1, "is_unordered": false }
+      ]
+    },
+    {
+      "name": "Reverse String",
+      "topic": "Recursion Basics",
+      "description": "Given a string, return the string reversed using recursion.\n\nExample 1:\nInput: s = \"abc\"\nOutput: \"cba\"\nExplanation: Reverse the order of characters in \"abc\" to get \"cba\"\n\nExample 2:\nInput: s = \"a\"\nOutput: \"a\"\nExplanation: A single character is the same when reversed\n\nExample 3:\nInput: s = \"hello\"\nOutput: \"olleh\"\nExplanation: Reverse the order of all characters\n\nConstraints:\n0 <= len(s) <= 1000\ns consists of only lowercase English letters",
+      "init_code": "def solve(s):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 1,
+      "beta": 2.0,
+      "is_unordered": false,
+      "tests": [
+        { "input": "abc", "output": "cba", "is_unordered": false },
+        { "input": "a", "output": "a", "is_unordered": false },
+        { "input": "hello", "output": "olleh", "is_unordered": false }
+      ],
+      "hidden_tests": [
+        { "input": "", "output": "", "is_unordered": false },
+        { "input": "ab", "output": "ba", "is_unordered": false },
+        { "input": "racecar", "output": "racecar", "is_unordered": false }
+      ]
+    },
+    {
+      "name": "Count Occurrences",
+      "topic": "Recursion Basics",
+      "description": "Given a list of integers and a target value, return how many times the target appears in the list.\n\nExample 1:\nInput: arr = [1, 2, 2, 3], target = 2\nOutput: 2\nExplanation: The value 2 appears 2 times in the list\n\nExample 2:\nInput: arr = [1, 1, 1], target = 1\nOutput: 3\nExplanation: The value 1 appears 3 times in the list\n\nExample 3:\nInput: arr = [1, 2, 3], target = 4\nOutput: 0\nExplanation: The value 4 does not appear in the list\n\nConstraints:\n0 <= arr.length <= 1000\n-1000 <= arr[i] <= 1000\n-1000 <= target <= 1000",
+      "init_code": "def solve(arr, target):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 1.0,
+      "beta": 2.3,
+      "is_unordered": false,
+      "tests": [
+        { "input": [[1, 2, 2, 3], 2], "output": 2, "is_unordered": false },
+        { "input": [[1, 1, 1], 1], "output": 3, "is_unordered": false },
+        { "input": [[1, 2, 3], 4], "output": 0, "is_unordered": false }
+      ],
+      "hidden_tests": [
+        { "input": [[5], 5], "output": 1, "is_unordered": false },
+        { "input": [[], 1], "output": 0, "is_unordered": false },
+        { "input": [[1, 2, 1, 2, 1], 1], "output": 3, "is_unordered": false }
+      ]
+    },
+    {
+      "name": "Is Palindrome",
+      "topic": "Recursion Basics",
+      "description": "Given a string, return true if it is a palindrome, false otherwise.\n\nA palindrome is a word that reads the same forwards and backwards.\n\nExample 1:\nInput: s = \"aba\"\nOutput: true\nExplanation: \"aba\" reads the same forwards and backwards\n\nExample 2:\nInput: s = \"abc\"\nOutput: false\nExplanation: \"abc\" reversed is \"cba\", which is different from \"abc\"\n\nExample 3:\nInput: s = \"racecar\"\nOutput: true\nExplanation: \"racecar\" reads the same forwards and backwards\n\nConstraints:\n0 <= len(s) <= 1000\ns consists of only lowercase English letters",
+      "init_code": "def solve(s):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 1,
+      "beta": 2.6,
+      "is_unordered": false,
+      "tests": [
+        { "input": "aba", "output": true, "is_unordered": false },
+        { "input": "abc", "output": false, "is_unordered": false },
+        { "input": "racecar", "output": true, "is_unordered": false }
+      ],
+      "hidden_tests": [
+        { "input": "a", "output": true, "is_unordered": false },
+        { "input": "", "output": true, "is_unordered": false },
+        { "input": "abcba", "output": true, "is_unordered": false }
+      ]
+    },
+    {
+      "name": "Nested List Weight Sum",
+      "topic": "Recursion Basics",
+      "description": "Given a nested list of integers, return the sum of all integers weighted by their depth.\n\nEach element is either an integer or a list. The weight of an integer is its depth in the nested structure.\n\nExample 1:\nInput: nestedList = [[1,1],2,[1,1]]\nOutput: 10\nExplanation: 1*2 + 1*2 + 2*1 + 1*2 + 1*2 = 2 + 2 + 2 + 2 + 2 = 10\n\nExample 2:\nInput: nestedList = [1,[4,[6]]]\nOutput: 27\nExplanation: 1*1 + 4*2 + 6*3 = 1 + 8 + 18 = 27\n\nExample 3:\nInput: nestedList = [1,1]\nOutput: 2\nExplanation: Two integers at depth 1: 1*1 + 1*1 = 2\n\nConstraints:\n1 <= nestedList.length <= 50\nThe values of the integers in the nested list are between -100 and 100.\nThe maximum depth of any integer in the nested list is less than or equal to 10.",
+      "init_code": "def solve(nestedList):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 1,
+      "beta": 2.9,
+      "is_unordered": false,
+      "tests": [
+        { "input": [[[1, 1], 2, [1, 1]]], "output": 10, "is_unordered": false },
+        { "input": [[1, [4, [6]]]], "output": 27, "is_unordered": false },
+        { "input": [[1, 1]], "output": 2, "is_unordered": false }
+      ],
+      "hidden_tests": [
+        { "input": [[[1]]], "output": 2, "is_unordered": false },
+        { "input": [[1]], "output": 1, "is_unordered": false },
+        { "input": [[[[[[1]]]], 2]], "output": 7, "is_unordered": false }
+      ]
+    }
+  ]
+}

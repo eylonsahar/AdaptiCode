@@ -1,0 +1,14 @@
+{
+  "user_id": "default_user",
+  "theta_by_topic": {
+    "Recursion Basics": 0.0,
+    "Backtracking": 0.0,
+    "Dynamic Programming & Advanced Recursion": 0.0
+  },
+  "concept_status": {
+    "Recursion Basics": "opened",
+    "Backtracking": "locked",
+    "Dynamic Programming & Advanced Recursion": "locked"
+  },
+  "answer_history": []
+}

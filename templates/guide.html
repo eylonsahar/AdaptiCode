@@ -1,0 +1,233 @@
+{% extends "base.html" %}
+
+{% block title %}Platform Guide{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/onboarding.css') }}">
+
+<div class="container" style="max-width: 900px; padding: 3rem 2rem;">
+
+    <!-- Header -->
+    <div style="text-align: center; margin-bottom: 3rem;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">📖 Platform Guide</h1>
+        <p class="subtitle" style="font-size: 1.2rem; color: #718096;">
+            Everything you need to know about AdaptiCode
+        </p>
+        <button onclick="replayOnboarding()" class="btn btn-secondary" style="margin-top: 1.5rem;">
+            🔄 Replay Interactive Tutorial
+        </button>
+    </div>
+
+    <!-- Guide Content -->
+    <div
+        style="background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); border-radius: 24px; padding: 3rem; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);">
+
+        <!-- Section 1: Welcome -->
+        <section style="margin-bottom: 3rem;">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem; color: #2d3748;">🎯 Welcome to AdaptiCode</h2>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568;">
+                AdaptiCode is your personal adaptive learning companion for mastering recursion and technical interview
+                preparation.
+                Unlike traditional learning platforms, we don't just give you random questions—we intelligently adapt to
+                your skill level,
+                ensuring you're always challenged but never overwhelmed.
+            </p>
+            <div class="highlight-box" style="margin-top: 1.5rem;">
+                <p><strong>🎓 Our Goal:</strong> Help you build genuine understanding and confidence in recursion
+                    through personalized,
+                    adaptive practice that meets you exactly where you are in your learning journey.</p>
+            </div>
+        </section>
+
+        <!-- Section 2: How It Works -->
+        <section style="margin-bottom: 3rem;">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem; color: #2d3748;">⚙️ How It Works</h2>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568;">
+                AdaptiCode uses intelligent algorithms to select the perfect question for you at each step. Here's the
+                magic behind it:
+            </p>
+            <ul style="margin: 1.5rem 0; padding-left: 2rem;">
+                <li style="margin-bottom: 1rem; line-height: 1.8; color: #4a5568;">
+                    <strong style="color: #667eea;">Smart Question Selection:</strong> We analyze your performance and
+                    pick questions
+                    that match your current skill level—not too easy, not too hard.
+                </li>
+                <li style="margin-bottom: 1rem; line-height: 1.8; color: #4a5568;">
+                    <strong style="color: #667eea;">Structured Learning Path:</strong> You'll progress through topics in
+                    a logical order,
+                    from basics to advanced concepts, ensuring you build a solid foundation.
+                </li>
+                <li style="margin-bottom: 1rem; line-height: 1.8; color: #4a5568;">
+                    <strong style="color: #667eea;">Real-Time Adaptation:</strong> As you answer questions, the system
+                    learns about you
+                    and adjusts to keep you in the optimal learning zone.
+                </li>
+            </ul>
+        </section>
+
+        <!-- Section 3: Understanding Theta -->
+        <section style="margin-bottom: 3rem;">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem; color: #2d3748;">📊 What is Theta (θ)?</h2>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568;">
+                Think of <strong>theta</strong> as your <strong>skill level score</strong> for each topic. It's a number
+                that represents
+                how well you understand a particular concept.
+            </p>
+
+            <div class="highlight-box" style="margin: 1.5rem 0;">
+                <p style="margin-bottom: 0.75rem;"><strong>📈 How Theta Works:</strong></p>
+                <ul style="margin: 0; padding-left: 1.5rem;">
+                    <li style="margin-bottom: 0.5rem;">You start at <strong>theta = 0</strong> (beginner level)</li>
+                    <li style="margin-bottom: 0.5rem;">When you answer correctly, your theta <strong>goes up</strong> ⬆️
+                    </li>
+                    <li style="margin-bottom: 0.5rem;">When you struggle, your theta <strong>goes down</strong> ⬇️</li>
+                    <li>Reach <strong>theta = 1.2</strong> to master a topic! 🎉</li>
+                </ul>
+            </div>
+
+            <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568; margin-top: 1.5rem;">
+                <strong>Important:</strong> Your theta updates <em>after you answer at least 2 questions</em>. This
+                helps the system
+                get a better understanding of your actual skill level before making adjustments.
+            </p>
+
+            <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568; margin-top: 1rem;">
+                You can see your theta change in the dashboard's "Theta Change" column—it shows how much your skill
+                level
+                improved (or decreased) after each question.
+            </p>
+        </section>
+
+        <!-- Section 4: Concept Statuses -->
+        <section style="margin-bottom: 3rem;">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem; color: #2d3748;">🔓 Understanding Concept Statuses</h2>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568; margin-bottom: 1.5rem;">
+                Each recursion topic has a status that shows your progress. Here's what each status means:
+            </p>
+
+            <div class="status-examples" style="display: flex; flex-direction: column; gap: 1.25rem;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <span class="status-badge locked">🔒 Locked</span>
+                    <p style="margin: 0; color: #4a5568;">
+                        You haven't unlocked this topic yet. Complete the prerequisite topics first!
+                    </p>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <span class="status-badge opened">📖 Opened</span>
+                    <p style="margin: 0; color: #4a5568;">
+                        You're currently learning this topic. Keep practicing to master it!
+                    </p>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <span class="status-badge mastered">✅ Mastered</span>
+                    <p style="margin: 0; color: #4a5568;">
+                        Congratulations! You've mastered this topic (theta ≥ 1.2). The next topic is now unlocked!
+                    </p>
+                </div>
+            </div>
+
+            <div class="highlight-box" style="margin-top: 1.5rem;">
+                <p><strong>💡 Pro Tip:</strong> Topics unlock in order as you master them. Start with "Recursion Basics"
+                    and work your way up to "Backtracking" for the best learning experience!</p>
+            </div>
+        </section>
+
+        <!-- Section 5: Reading Your Dashboard -->
+        <section style="margin-bottom: 3rem;">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem; color: #2d3748;">📈 Reading Your Dashboard</h2>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568; margin-bottom: 1.5rem;">
+                Your dashboard is your progress hub. Here's how to understand what you're seeing:
+            </p>
+
+            <h3 style="font-size: 1.3rem; margin: 1.5rem 0 1rem; color: #667eea;">🗺️ Learning Roadmap</h3>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568;">
+                The roadmap visualization shows your journey from beginner to expert. Each topic displays:
+            </p>
+            <ul style="margin: 1rem 0 1.5rem 2rem; padding: 0;">
+                <li style="margin-bottom: 0.75rem; line-height: 1.8; color: #4a5568;">
+                    <strong>Current Theta:</strong> Your current skill level for that topic
+                </li>
+                <li style="margin-bottom: 0.75rem; line-height: 1.8; color: #4a5568;">
+                    <strong>Progress Bar:</strong> Visual representation of how close you are to mastery
+                </li>
+                <li style="margin-bottom: 0.75rem; line-height: 1.8; color: #4a5568;">
+                    <strong>Status Badge:</strong> Shows if the topic is locked, opened, or mastered
+                </li>
+            </ul>
+
+            <h3 style="font-size: 1.3rem; margin: 1.5rem 0 1rem; color: #667eea;">📊 Statistics Cards</h3>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568;">
+                At the top of your dashboard, you'll see quick stats:
+            </p>
+            <ul style="margin: 1rem 0 1.5rem 2rem; padding: 0;">
+                <li style="margin-bottom: 0.75rem; line-height: 1.8; color: #4a5568;">
+                    <strong>Questions Attempted:</strong> Total number of questions you've tried
+                </li>
+                <li style="margin-bottom: 0.75rem; line-height: 1.8; color: #4a5568;">
+                    <strong>Questions Passed:</strong> How many you got right
+                </li>
+                <li style="margin-bottom: 0.75rem; line-height: 1.8; color: #4a5568;">
+                    <strong>Success Rate:</strong> Your overall percentage of correct answers
+                </li>
+            </ul>
+
+            <h3 style="font-size: 1.3rem; margin: 1.5rem 0 1rem; color: #667eea;">📚 Practice History</h3>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568;">
+                The history table shows every question you've attempted, including:
+            </p>
+            <ul style="margin: 1rem 0 1.5rem 2rem; padding: 0;">
+                <li style="margin-bottom: 0.75rem; line-height: 1.8; color: #4a5568;">
+                    <strong>Test Pass Rate:</strong> Percentage of test cases you passed
+                </li>
+                <li style="margin-bottom: 0.75rem; line-height: 1.8; color: #4a5568;">
+                    <strong>Code Quality:</strong> How well-written your solution was
+                </li>
+                <li style="margin-bottom: 0.75rem; line-height: 1.8; color: #4a5568;">
+                    <strong>Theta Change:</strong> How much your skill level changed after this question
+                </li>
+            </ul>
+        </section>
+
+        <!-- Section 6: Getting Started -->
+        <section style="margin-bottom: 2rem;">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem; color: #2d3748;">🚀 Ready to Start?</h2>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568; margin-bottom: 1.5rem;">
+                Here's what you need to know to get the most out of AdaptiCode:
+            </p>
+
+            <div class="highlight-box">
+                <p style="margin-bottom: 0.75rem;"><strong>⚡ Quick Start Tips:</strong></p>
+                <ul style="margin: 0; padding-left: 1.5rem;">
+                    <li style="margin-bottom: 0.5rem;">Answer at least <strong>2 questions</strong> to activate the
+                        adaptive system</li>
+                    <li style="margin-bottom: 0.5rem;">Don't worry about getting questions wrong—that's how you learn!
+                    </li>
+                    <li style="margin-bottom: 0.5rem;">Check your dashboard regularly to track your progress</li>
+                    <li style="margin-bottom: 0.5rem;">Focus on understanding, not just passing tests</li>
+                    <li>Take your time—quality practice beats speed every time</li>
+                </ul>
+            </div>
+
+            <div style="text-align: center; margin-top: 2.5rem;">
+                <a href="{{ url_for('question_page') }}" class="btn btn-primary btn-large">
+                    Start Practicing Now →
+                </a>
+                <a href="{{ url_for('dashboard') }}" class="btn btn-secondary" style="margin-left: 1rem;">
+                    View Dashboard
+                </a>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+<script>
+    function replayOnboarding() {
+        // Clear the onboarding completion flag from sessionStorage
+        sessionStorage.removeItem('adapticode_onboarding_completed');
+        // Redirect to home page where onboarding will trigger
+        window.location.href = "{{ url_for('home') }}";
+    }
+</script>
+
+{% endblock %}

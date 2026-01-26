@@ -1,0 +1,176 @@
+{
+  "topic": "Dynamic Programming & Advanced Recursion",
+  "questions": [
+    {
+      "name": "Longest Common Subsequence",
+      "topic": "Dynamic Programming & Advanced Recursion",
+      "description": "Given two strings text1 and text2, return the length of their longest common subsequence. If there is no common subsequence, return 0.\n\nA subsequence is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements.\n\nExample 1:\nInput: text1 = \"abcde\", text2 = \"ace\"\nOutput: 3\nExplanation: The longest common subsequence is \"ace\" and its length is 3.\n\nExample 2:\nInput: text1 = \"abc\", text2 = \"abc\"\nOutput: 3\nExplanation: Both strings are identical, so the longest common subsequence is \"abc\" with length 3.\n\nExample 3:\nInput: text1 = \"abc\", text2 = \"def\"\nOutput: 0\nExplanation: There are no common characters between the two strings.\n\nConstraints:\n1 <= text1.length, text2.length <= 1000\ntext1 and text2 consist of only lowercase English characters.",
+      "init_code": "def solve(text1, text2):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 2.4,
+      "beta": 1.65,
+      "is_unordered": false,
+      "tests": [
+        { "input": ["abcde", "ace"], "output": 3, "is_unordered": false },
+        { "input": ["abc", "abc"], "output": 3, "is_unordered": false },
+        { "input": ["abc", "def"], "output": 0, "is_unordered": false }
+      ],
+      "hidden_tests": [
+        { "input": ["a", "a"], "output": 1, "is_unordered": false },
+        { "input":["a", "b"], "output": 0, "is_unordered": false },
+        { "input": ["abcd", "bd"], "output": 2, "is_unordered": false }
+      ]
+    },
+    {
+      "name": "Coin Change",
+      "topic": "Dynamic Programming & Advanced Recursion",
+      "description": "You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money.\n\nReturn the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.\n\nYou may assume that you have an infinite number of each kind of coin.\n\nExample 1:\nInput: coins = [1,2,5], amount = 11\nOutput: 3\nExplanation: 11 = 5 + 5 + 1, so 3 coins are needed.\n\nExample 2:\nInput: coins = [2], amount = 3\nOutput: -1\nExplanation: The coin of value 2 cannot make amount 3.\n\nExample 3:\nInput: coins = [1], amount = 0\nOutput: 0\nExplanation: An amount of 0 requires 0 coins.\n\nConstraints:\n1 <= coins.length <= 12\n1 <= coins[i] <= 2^31 - 1\n0 <= amount <= 10000",
+      "init_code": "def solve(coins, amount):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 2.5,
+      "beta": 1.40,
+      "is_unordered": false,
+      "tests": [
+        { "input": [[1,2,5], 11], "output": 3, "is_unordered": false },
+        { "input": [[2], 3], "output": -1, "is_unordered": false },
+        { "input": [[1], 0], "output": 0, "is_unordered": false }
+      ],
+      "hidden_tests": [
+        { "input": [[1], 1], "output": 1, "is_unordered": false },
+        { "input": [[1,3,4], 6], "output": 2, "is_unordered": false },
+        { "input": [[5,10,25], 30], "output": 2, "is_unordered": false }
+      ]
+    },
+    {
+      "name": "Longest Increasing Subsequence",
+      "topic": "Dynamic Programming & Advanced Recursion",
+      "description": "Given an integer array nums, return the length of the longest strictly increasing subsequence.\n\nExample 1:\nInput: nums = [10,9,2,5,3,7,101,18]\nOutput: 4\nExplanation: The longest increasing subsequence is [2,3,7,101], therefore the length is 4.\n\nExample 2:\nInput: nums = [0,1,0,3,2,3]\nOutput: 4\nExplanation: One possible longest increasing subsequence is [0,1,2,3].\n\nExample 3:\nInput: nums = [7,7,7,7,7,7,7]\nOutput: 1\nExplanation: Since all elements are equal, the longest strictly increasing subsequence has length 1.\n\nConstraints:\n1 <= nums.length <= 2500\n-10^4 <= nums[i] <= 10^4",
+      "init_code": "def solve(nums):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 2.6,
+      "beta": 2.65,
+      "is_unordered": false,
+      "tests": [
+        { "input": [[10,9,2,5,3,7,101,18]], "output": 4, "is_unordered": false },
+        { "input": [[0,1,0,3,2,3]], "output": 4, "is_unordered": false },
+        { "input": [[7,7,7,7,7,7,7]], "output": 1, "is_unordered": false }
+      ],
+      "hidden_tests": [
+        { "input": [[1]], "output": 1, "is_unordered": false },
+        { "input": [[1,2,3,4,5]], "output": 5, "is_unordered": false },
+        { "input": [[5,4,3,2,1]], "output": 1, "is_unordered": false }
+      ]
+    },
+    {
+      "name": "Edit Distance",
+      "topic": "Dynamic Programming & Advanced Recursion",
+      "description": "Given two strings word1 and word2, return the minimum number of operations required to convert word1 to word2.\n\nYou have the following three operations permitted on a word:\n- Insert a character\n- Delete a character\n- Replace a character\n\nExample 1:\nInput: word1 = \"horse\", word2 = \"ros\"\nOutput: 3\nExplanation: horse -> rorse (replace 'h' with 'r'), rorse -> rose (remove 'r'), rose -> ros (remove 'e').\n\nExample 2:\nInput: word1 = \"intention\", word2 = \"execution\"\nOutput: 5\nExplanation: 5 operations are required to transform \"intention\" to \"execution\".\n\nExample 3:\nInput: word1 = \"abc\", word2 = \"abc\"\nOutput: 0\nExplanation: Both strings are identical, so no operations are needed.\n\nConstraints:\n0 <= word1.length, word2.length <= 500\nword1 and word2 consist of lowercase English letters.",
+      "init_code": "def solve(word1, word2):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 2.8,
+      "beta": 2.90,
+      "is_unordered": false,
+      "tests": [
+        { "input": ["horse", "ros"], "output": 3, "is_unordered": false },
+        { "input": ["intention", "execution"], "output": 5, "is_unordered": false },
+        { "input": ["abc", "abc"], "output": 0, "is_unordered": false }
+      ],
+      "hidden_tests": [
+        { "input": ["", ""], "output": 0, "is_unordered": false },
+        { "input": ["a", ""], "output": 1, "is_unordered": false },
+        { "input": ["sea", "eat"], "output": 2, "is_unordered": false }
+      ]
+    },
+    {
+      "name": "Partition Equal Subset Sum",
+      "topic": "Dynamic Programming & Advanced Recursion",
+      "description": "Given an integer array nums, return true if you can partition the array into two subsets such that the sum of the elements in both subsets is equal or false otherwise.\n\nExample 1:\nInput: nums = [1,5,11,5]\nOutput: true\nExplanation: The array can be partitioned as [1, 5, 5] and [11], both with sum 11.\n\nExample 2:\nInput: nums = [1,2,3,5]\nOutput: false\nExplanation: The sum of the array is 11, which is odd. It cannot be partitioned into two equal-sum subsets.\n\nExample 3:\nInput: nums = [1,1]\nOutput: true\nExplanation: The array can be partitioned as [1] and [1], both with sum 1.\n\nConstraints:\n1 <= nums.length <= 200\n1 <= nums[i] <= 100",
+      "init_code": "def solve(nums):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 2.3,
+      "beta": 0.90,
+      "is_unordered": false,
+      "tests": [
+        { "input": [[1,5,11,5]], "output": true, "is_unordered": false },
+        { "input": [[1,2,3,5]], "output": false, "is_unordered": false },
+        { "input": [[1,1]], "output": true, "is_unordered": false }
+      ],
+      "hidden_tests": [
+        { "input": [[1]], "output": false, "is_unordered": false },
+        { "input": [[2,2,2,2]], "output": true, "is_unordered": false },
+        { "input": [[1,2,5]], "output": false, "is_unordered": false }
+      ]
+    },
+    {
+      "name": "House Robber II",
+      "topic": "Dynamic Programming & Advanced Recursion",
+      "description": "You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed. All houses at this place are arranged in a circle. That means the first house is the neighbor of the last one. Meanwhile, adjacent houses have a security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night.\n\nGiven an integer array nums representing the amount of money of each house, return the maximum amount of money you can rob tonight without alerting the police.\n\nExample 1:\nInput: nums = [2,3,2]\nOutput: 3\nExplanation: Rob house 1 (money = 3). Cannot rob house 2 and 3 since they are adjacent to the robbed house.\n\nExample 2:\nInput: nums = [1,2,3,1]\nOutput: 4\nExplanation: Rob house 1 (money = 1) and then rob house 3 (money = 3). Total money = 1 + 3 = 4.\n\nExample 3:\nInput: nums = [1,2,3]\nOutput: 3\nExplanation: Rob house 3 (money = 3). Cannot rob house 2 since it's adjacent to house 3.\n\nConstraints:\n1 <= nums.length <= 100\n0 <= nums[i] <= 1000",
+      "init_code": "def solve(nums):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 2.4,
+      "beta": 1.9,
+      "is_unordered": false,
+      "tests": [
+        { "input": [[2,3,2]], "output": 3, "is_unordered": false },
+        { "input": [[1,2,3,1]], "output": 4, "is_unordered": false },
+        { "input": [[1,2,3]], "output": 3, "is_unordered": false }
+      ],
+      "hidden_tests": [
+        { "input": [[1]], "output": 1, "is_unordered": false },
+        { "input": [[1,2]], "output": 2, "is_unordered": false },
+        { "input": [[5,1,1,5]], "output": 6, "is_unordered": false }
+      ]
+    },
+    {
+      "name": "Maximum Product Subarray",
+      "topic": "Dynamic Programming & Advanced Recursion",
+      "description": "Given an integer array nums, find a subarray that has the largest product, and return the product.\n\nThe test cases are generated so that the answer will fit in a 32-bit integer.\n\nExample 1:\nInput: nums = [2,3,-2,4]\nOutput: 6\nExplanation: [2,3] has the largest product 6.\n\nExample 2:\nInput: nums = [-2,0,-1]\nOutput: 0\nExplanation: The subarray [0] has the largest product 0.\n\nExample 3:\nInput: nums = [-2,3,-4]\nOutput: 24\nExplanation: The subarray [-2,3,-4] has the largest product 24.\n\nConstraints:\n1 <= nums.length <= 20000\n-10 <= nums[i] <= 10\nThe product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.",
+      "init_code": "def solve(nums):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 2.2,
+      "beta": 1.15,
+      "is_unordered": false,
+      "tests": [
+        { "input": [[2,3,-2,4]], "output": 6, "is_unordered": false },
+        { "input": [[-2,0,-1]], "output": 0, "is_unordered": false },
+        { "input": [[-2,3,-4]], "output": 24, "is_unordered": false }
+      ],
+      "hidden_tests": [
+        { "input": [[2]], "output": 2, "is_unordered": false },
+        { "input": [[-2]], "output": -2, "is_unordered": false },
+        { "input": [[2,3,0,4,5]], "output": 20, "is_unordered": false }
+      ]
+    },
+    {
+      "name": "Word Break",
+      "topic": "Dynamic Programming & Advanced Recursion",
+      "description": "Given a string s and a list of strings wordDict, return true if s can be segmented into a space-separated sequence of one or more dictionary words.\n\nNote that the same word in the dictionary may be reused multiple times in the segmentation.\n\nExample 1:\nInput: s = \"leetcode\", wordDict = [\"leet\",\"code\"]\nOutput: true\nExplanation: \"leetcode\" can be segmented as \"leet\" + \"code\".\n\nExample 2:\nInput: s = \"applepenapple\", wordDict = [\"apple\",\"pen\"]\nOutput: true\nExplanation: \"applepenapple\" can be segmented as \"apple\" + \"pen\" + \"apple\".\n\nExample 3:\nInput: s = \"catsandog\", wordDict = [\"cats\",\"dog\",\"sand\",\"and\",\"cat\"]\nOutput: false\nExplanation: \"catsandog\" cannot be segmented using the words in wordDict.\n\nConstraints:\n1 <= s.length <= 300\n1 <= wordDict.length <= 1000\n1 <= wordDict[i].length <= 20\ns and wordDict[i] consist of only lowercase English letters.\nAll the strings of wordDict are unique.",
+      "init_code": "def solve(s, wordDict):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 2.5,
+      "beta": 2.40,
+      "is_unordered": false,
+      "tests": [
+        { "input": ["leetcode", ["leet","code"]], "output": true, "is_unordered": false },
+        { "input": ["applepenapple", ["apple","pen"]], "output": true, "is_unordered": false },
+        { "input": ["catsandog", ["cats","dog","sand","and","cat"]], "output": false, "is_unordered": false }
+      ],
+      "hidden_tests": [
+        { "input": ["a", ["a"]], "output": true, "is_unordered": false },
+        { "input": ["ab", ["a","b"]], "output": true, "is_unordered": false },
+        { "input": ["cars", ["car","ca","rs"]], "output": true, "is_unordered": false }
+      ]
+    },
+    {
+      "name": "Longest Palindromic Subsequence",
+      "topic": "Dynamic Programming & Advanced Recursion",
+      "description": "Given a string s, find the longest palindromic subsequence's length in s.\n\nA subsequence is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements.\n\nExample 1:\nInput: s = \"bbbab\"\nOutput: 4\nExplanation: The longest palindromic subsequence is \"bbbb\" with length 4.\n\nExample 2:\nInput: s = \"cbbd\"\nOutput: 2\nExplanation: The longest palindromic subsequence is \"bb\" with length 2.\n\nExample 3:\nInput: s = \"a\"\nOutput: 1\nExplanation: A single character is always a palindrome.\n\nConstraints:\n1 <= s.length <= 1000\ns consists only of lowercase English letters.",
+      "init_code": "def solve(s):\n    ## Write your solution here\n    \n    pass",
+      "alpha": 2.6,
+      "beta": 2.15,
+      "is_unordered": false,
+      "tests": [
+        { "input": "bbbab", "output": 4, "is_unordered": false },
+        { "input": "cbbd", "output": 2, "is_unordered": false },
+        { "input": "a", "output": 1, "is_unordered": false }
+      ],
+      "hidden_tests": [
+        { "input": "aa", "output": 2, "is_unordered": false },
+        { "input": "abc", "output": 1, "is_unordered": false },
+        { "input": "abcba", "output": 5, "is_unordered": false }
+      ]
+    }
+  ]
+}
