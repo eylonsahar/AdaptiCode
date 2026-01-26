@@ -7,7 +7,7 @@ python-dotenv==1.0.0
 # LLM providers
 # The system supports multiple LLM providers. Install the ones you need:
 google-genai==0.6.0
-groq==0.4.2
+groq==0.11.0
 
 # Optional LLM providers (uncomment and install as needed)
 # openai==1.3.0
