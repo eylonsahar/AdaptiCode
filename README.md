@@ -51,6 +51,8 @@ cd AdaptiCode
 ```bash
 # Create virtual environment
 python3 -m venv .venv
+# Otherwise (e.g. some Windows installations):
+python -m venv .venv
 
 # Activate virtual environment
 # On macOS/Linux:
